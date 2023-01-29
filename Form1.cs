@@ -38,7 +38,6 @@ namespace WinFormsApp1
 
             Task task = Task.Run(() =>
             {
-
                 CounterUpdate();
             });
 
