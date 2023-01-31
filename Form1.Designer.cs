@@ -39,6 +39,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Csv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -119,11 +122,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(125, 168);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(231, 168);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 23);
+            this.textBox3.TabIndex = 10;
+            // 
+            // Csv
+            // 
+            this.Csv.Location = new System.Drawing.Point(347, 168);
+            this.Csv.Name = "Csv";
+            this.Csv.Size = new System.Drawing.Size(75, 23);
+            this.Csv.TabIndex = 11;
+            this.Csv.Text = "String";
+            this.Csv.UseVisualStyleBackColor = true;
+            this.Csv.Click += new System.EventHandler(this.Csv_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 208);
+            this.Controls.Add(this.Csv);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LB_Counter);
@@ -152,5 +182,8 @@
         private TextBox textBox1;
         private Button button1;
         private FolderBrowserDialog folderBrowserDialog1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Button Csv;
     }
 }

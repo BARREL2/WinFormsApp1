@@ -83,11 +83,37 @@ namespace WinFormsApp1
             return;
         }
 
+        private string folderPath;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog= new FolderBrowserDialog();
-            folderBrowserDialog.ShowDialog();
-            textBox1.Text = folderBrowserDialog.SelectedPath.ToString();
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void Csv_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(folderPath))
+            {
+                string fileName = textBox2.Text + textBox3.Text + ".csv";
+                string filePath = Path.Combine(folderPath, fileName);
+
+                if (File.Exists(filePath))
+                {
+                    MessageBox.Show("同じ名前のファイルが既に存在します。別のファイル名を使用してください。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (StreamWriter streamWriter = new StreamWriter(filePath))
+                {
+                    streamWriter.WriteLine(textBox1.Text);
+                }
+                textBox3.Text = (int.Parse(textBox3.Text) + 1).ToString();
+            }
         }
     }
 }
