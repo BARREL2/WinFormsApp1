@@ -36,6 +36,9 @@
             this.LB_ToLower = new System.Windows.Forms.Label();
             this.LB_Timer = new System.Windows.Forms.Label();
             this.LB_Counter = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -96,11 +99,33 @@
             this.LB_Counter.TabIndex = 6;
             this.LB_Counter.Text = "counter";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(18, 121);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(323, 23);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::WinFormsApp1.Properties.Resources.icons8_フォルダ_240;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(347, 94);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 50);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "読込";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 93);
+            this.ClientSize = new System.Drawing.Size(500, 208);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LB_Counter);
             this.Controls.Add(this.LB_Timer);
             this.Controls.Add(this.LB_ToLower);
@@ -124,5 +149,8 @@
         private Label LB_ToLower;
         private Label LB_Timer;
         private Label LB_Counter;
+        private TextBox textBox1;
+        private Button button1;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }
