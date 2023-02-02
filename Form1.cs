@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Diagnostics.Metrics;
 
 namespace WinFormsApp1
 {
@@ -8,7 +7,6 @@ namespace WinFormsApp1
         private Stopwatch sw;
         private IInstrument _selectedInstrument;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -16,6 +14,7 @@ namespace WinFormsApp1
             comboBox1.Items.Add("Instrument1");
             comboBox1.Items.Add("Instrument2");
         }
+
         private delegate void DeligProcess();
 
         private delegate void DeligProcess1();
@@ -82,6 +81,7 @@ namespace WinFormsApp1
         {
             sw = new Stopwatch();
         }
+
         private void TimerUpdate()
         {
             DeligProcess1 process = new DeligProcess1(CTimer);
@@ -130,6 +130,7 @@ namespace WinFormsApp1
                 case "Instrument1":
                     _selectedInstrument = new Instrument1();
                     break;
+
                 case "Instrument2":
                     _selectedInstrument = new Instrument2();
                     break;
@@ -141,31 +142,6 @@ namespace WinFormsApp1
             // 選択された機種に応じて計測処理を実行
             var result = _selectedInstrument.Measure();
             MessageBox.Show(result);
-        }
-    }
-
-
-
-    public interface IInstrument
-    {
-        string Measure();
-    }
-
-    public class Instrument1 : IInstrument
-    {
-        public string Measure()
-        {
-            // Instrument1での計測処理をここに実装
-            return "Instrument1: Measurement Result";
-        }
-    }
-
-    public class Instrument2 : IInstrument
-    {
-        public string Measure()
-        {
-            // Instrument2での計測処理をここに実装
-            return "Instrument2: Measurement Result";
         }
     }
 }
