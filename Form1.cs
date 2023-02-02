@@ -1,14 +1,20 @@
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
         private Stopwatch sw;
+        private IInstrument _selectedInstrument;
+
 
         public Form1()
         {
             InitializeComponent();
+            // コンボボックスに機種名を追加
+            comboBox1.Items.Add("Instrument1");
+            comboBox1.Items.Add("Instrument2");
         }
         private delegate void DeligProcess();
 
@@ -114,6 +120,52 @@ namespace WinFormsApp1
                 }
                 textBox3.Text = (int.Parse(textBox3.Text) + 1).ToString();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 選択された機種に応じて、対応するクラスを生成
+            switch (comboBox1.SelectedItem.ToString())
+            {
+                case "Instrument1":
+                    _selectedInstrument = new Instrument1();
+                    break;
+                case "Instrument2":
+                    _selectedInstrument = new Instrument2();
+                    break;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 選択された機種に応じて計測処理を実行
+            var result = _selectedInstrument.Measure();
+            MessageBox.Show(result);
+        }
+    }
+
+
+
+    public interface IInstrument
+    {
+        string Measure();
+    }
+
+    public class Instrument1 : IInstrument
+    {
+        public string Measure()
+        {
+            // Instrument1での計測処理をここに実装
+            return "Instrument1: Measurement Result";
+        }
+    }
+
+    public class Instrument2 : IInstrument
+    {
+        public string Measure()
+        {
+            // Instrument2での計測処理をここに実装
+            return "Instrument2: Measurement Result";
         }
     }
 }
