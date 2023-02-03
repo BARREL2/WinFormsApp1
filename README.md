@@ -8,3 +8,5 @@
 https://brct.notion.site/a917f846d0b045a89f319be3781b74f9
 
 https://brct.notion.site/DLL-22e9ff7db22a48d29f970d71076514b7
+
+https://www.notion.so/brct/DLL-22e9ff7db22a48d29f970d71076514b7
